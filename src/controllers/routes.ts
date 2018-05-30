@@ -6,3 +6,5 @@ router.get('/', (req: Request, res: Response) => {res.send('OK')});
 router.get('/home', (req: Request, res: Response) => {res.send('home')});
 
 export const ROUTER = router;
+
+// can be implemented as class
