@@ -1,11 +1,8 @@
-export class Routes {
-    private router: any;
+import { Router, Request, Response } from 'express';
 
-    constructor(_router: any) {
-        this.router = _router;
-    }
+const router: Router = Router();
 
-    public listen(): void {
-        this.router.get('/', (req: any, res: any) => {res.send('OK')});
-    }
-}
+router.get('/', (req: Request, res: Response) => {res.send('OK')});
+router.get('/home', (req: Request, res: Response) => {res.send('home')});
+
+export const ROUTER = router;

@@ -1,7 +1,8 @@
 {
   "files": [
     "src/*.ts",
-    "src/entities/*.ts"
+    "src/entities/*.ts",
+    "src/**/*"
   ],
   "compilerOptions": {
     "noImplicitAny": true,

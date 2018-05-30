@@ -1,24 +1,18 @@
 import { createServer, Server } from 'http';
 import * as express from 'express';
-//import { Routes } from './controllers/routes';
-import { Router } from 'express';
+import { ROUTER } from './controllers/routes';
 
 export class Main {
     public static readonly PORT:number = 8080;
     private app: express.Application;
     private server: Server;
     private port: string | number;
-    //private routes: Routes;
-    private router: Router = express.Router();
-
 
     constructor() {
         this.createApp();
         this.config();
         this.createServer();
         this.listen();
-        // this.routes = new Routes(this.router);
-
     }
 
     private createApp(): void {
@@ -37,10 +31,7 @@ export class Main {
         this.server.listen(this.port, () => {
             console.log('Running server on port %s', this.port);
         });
-        let router = Router();
-        router.get('/', (req: any, res: any) => {res.send('OK')});
-        this.app.use('/', router);
-        //  this.routes.listen();
+        this.app.use('/', ROUTER);
     }
 
     public getApp(): express.Application {
